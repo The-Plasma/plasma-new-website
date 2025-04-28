@@ -18,8 +18,6 @@ const HomeP: React.FC = () => {
         Your browser does not support the video tag.
       </video>
       
-      {/* Semi-transparent overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
       
       {/* Content Container */}
       <div className="absolute inset-0 z-20">
