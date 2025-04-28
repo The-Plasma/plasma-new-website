@@ -14,7 +14,7 @@ const HomeP: React.FC = () => {
         playsInline
         className="absolute w-full h-full object-cover z-0"
       >
-        <source src="/earth.mp4" type="video/mp4" />
+        <source src="https://the-plasma.github.io/plasma-new-website/earth.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
