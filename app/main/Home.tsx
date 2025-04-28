@@ -1,39 +1,44 @@
+// app/main/Home.tsx
 import React from 'react';
 import Image from 'next/image';
+import Navbar from '../components/Navbar';
 
 const HomeP: React.FC = () => {
   return (
-    <div className="relative h-screen w-full">
-      {/* Background Video - Fixed */}
-      <div className="fixed top-0 left-0 w-full h-full z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/earth.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Semi-transparent overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      </div>
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* Background Video */}
+      <video 
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover z-0"
+      >
+        <source src="/earth.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
-      {/* Logo (fixed in top left) */}
-      <div className="fixed top-4 left-4 z-40">
-        <Image 
-          src="/logo.svg" 
-          alt="Logo" 
-          width={48} 
-          height={48} 
-          className="w-auto h-12" 
-        />
-      </div>
+      {/* Semi-transparent overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
       
       {/* Content Container */}
-      <div className="relative h-screen z-20">
+      <div className="absolute inset-0 z-20">
+        {/* Logo (fixed in top left) */}
+        <div className="fixed top-4 left-4">
+          <Image 
+            src="/logo.svg" 
+            alt="Logo" 
+            width={48} 
+            height={48} 
+            className="h-12 w-auto" 
+          />
+        </div>
+        
+        {/* Navbar (in top center) */}
+        <div className="flex justify-center w-full">
+          <Navbar />
+        </div>
+        
         {/* Main content */}
         <div className="flex items-center justify-center h-full">
           <h1 className="text-white text-8xl font-bold tracking-wider">
