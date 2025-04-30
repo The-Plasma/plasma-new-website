@@ -13,10 +13,10 @@ const Work = () => {
       id: 'ideation',
       title: 'Endless Ideation',
       description: 'Generate innovative concepts at unprecedented speeds with our AI-powered brainstorming tools.',
-      icon: <Zap className="w-8 h-8 text-indigo-300" />,
+      icon: <Zap className="w-8 h-8 text-cyan-300" />,
       span: 'md:col-span-2',
       visual: 'Interactive Ideation Dashboard',
-      gradient: 'from-indigo-900/40 to-purple-900/40'
+      gradient: 'from-cyan-900/40 to-blue-900/40'
     },
     {
       id: 'benchmark',
@@ -31,19 +31,19 @@ const Work = () => {
       id: 'aesthetic',
       title: 'Aesthetic Excellence',
       description: 'Craft visually stunning experiences using advanced design principles and automated refinement tools.',
-      icon: <Palette className="w-8 h-8 text-rose-300" />,
+      icon: <Palette className="w-8 h-8 text-cyan-300" />,
       span: '',
       visual: 'Visual Design Interface',
-      gradient: 'from-rose-900/40 to-orange-900/40'
+      gradient: 'from-cyan-900/40 to-blue-900/40'
     },
     {
       id: 'pixel',
       title: 'Pixels Perfected',
       description: 'Transform concepts into production-ready designs optimized for websites, apps, and digital platforms.',
-      icon: <Code className="w-8 h-8 text-emerald-300" />,
+      icon: <Code className="w-8 h-8 text-cyan-300" />,
       span: 'md:col-span-2',
       visual: 'Multi-platform Preview',
-      gradient: 'from-emerald-900/40 to-teal-900/40'
+      gradient: 'from-cyan-900/40 to-blue-900/40'
     }
   ];
 
