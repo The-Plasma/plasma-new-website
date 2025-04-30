@@ -1,12 +1,9 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 import { ExternalLink, Star, Zap, Shield, Code, Palette } from 'lucide-react';
 
 const Work = () => {
-  // Animation states for cards
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-
   // Card data to make component more maintainable
   const cards = [
     {
@@ -48,14 +45,14 @@ const Work = () => {
   ];
 
   return (
-    <section className="py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-gray-950 to-black text-white relative overflow-hidden">
+    <section className="py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
       {/* Background blur elements */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute -bottom-40 left-1/3 w-96 h-96 bg-rose-600/20 rounded-full blur-3xl opacity-20"></div>
       
       {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMzBoMzB2MzBIMHoiIHN0cm9rZS1vcGFjaXR5PSIuMDIiIHN0cm9rZT0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDIiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMCAwaDMwdjMwSDB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTMwIDBoMzB2MzBIMzB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLnJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMzBoMzB2MzBIMHoiIHN0cm9rZS1vcGFjaXR5PSIuMDIiIHN0cm9rZT0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDIiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMCAwaDMwdjMwSDB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTMwIDBoMzB2MzBIMzB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="mb-20 text-center max-w-3xl mx-auto">
@@ -76,19 +73,18 @@ const Work = () => {
             {cards.map((card) => (
               <div
                 key={card.id}
-                className={`${card.span} group relative rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 ease-out 
-                ${hoveredCard === card.id ? 'scale-[1.03] z-20' : 'scale-100 z-10'}`}
-                onMouseEnter={() => setHoveredCard(card.id)}
-                onMouseLeave={() => setHoveredCard(null)}
+                className={`${card.span} group relative rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.03] hover:z-20`}
               >
                 {/* Card background with glass effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-80`}></div>
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
                 
-                {/* Animated border effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                  opacity-0 group-hover:opacity-100 animate-pulse" 
-                  style={{animationDuration: '3s'}}></div>
+                {/* Double border effect */}
+                <div className="absolute inset-[1px] rounded-2xl border border-white/10"></div>
+                <div className="absolute inset-[2px] rounded-2xl border border-white/5"></div>
+                
+                {/* Glowing border effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Card content */}
                 <div className="relative z-10 p-8 md:p-10 h-full flex flex-col">
@@ -101,42 +97,20 @@ const Work = () => {
                     </div>
                   </div>
                   
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">{card.title}</h3>
-                    <p className="text-gray-300 mb-8 leading-relaxed">{card.description}</p>
-                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-white">{card.title}</h3>
+                  <p className="text-gray-300 mb-6">{card.description}</p>
                   
-                  <div className="mt-auto">
-                    <div className="p-5 rounded-xl bg-black/30 backdrop-blur-lg border border-white/10 
-                      group-hover:border-white/20 transition-all duration-300">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-400">{card.visual}</span>
-                        <span className="flex h-2 w-2 relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                        </span>
-                      </div>
-                    </div>
+                  <div className="mt-auto pt-6 border-t border-white/5">
+                    <p className="text-sm text-gray-400">{card.visual}</p>
                   </div>
                 </div>
               </div>
-            ))} 
-          </div>
-          
-          <div className="mt-16 text-center">
-            <button className="px-8 py-4 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md 
-              border border-white/10 hover:border-white/20 transition-all duration-300 
-              text-white font-medium flex items-center gap-2 mx-auto">
-              <span>Explore All Features</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </button>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Work;
