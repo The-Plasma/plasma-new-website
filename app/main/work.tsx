@@ -1,29 +1,142 @@
-import React from 'react';
-import Image from 'next/image';
+"use client"
 
+import React, { useState } from 'react';
+import { ExternalLink, Star, Zap, Shield, Code, Palette } from 'lucide-react';
 
-const Work: React.FC = () => {
-    return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-            <h1 className="text-4xl font-bold mb-4">My Work</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <Image
-                        src="/path/to/image1.jpg"
-                        alt="Project 1"
-                        width={500}
-                        height={300}
-                        className="w-full h-auto"
-                    />
-                    <div className="p-4">
-                        <h2 className="text-xl font-semibold">Project 1</h2>
-                        <p className="text-gray-600">Description of Project 1.</p>
-                    </div>
-                </div>
-                {/* Add more project cards here */}
+const Work = () => {
+  // Animation states for cards
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
+  // Card data to make component more maintainable
+  const cards = [
+    {
+      id: 'ideation',
+      title: 'Endless Ideation',
+      description: 'Generate innovative concepts at unprecedented speeds with our AI-powered brainstorming tools.',
+      icon: <Zap className="w-8 h-8 text-indigo-300" />,
+      span: 'md:col-span-2',
+      visual: 'Interactive Ideation Dashboard',
+      gradient: 'from-indigo-900/40 to-purple-900/40'
+    },
+    {
+      id: 'benchmark',
+      title: 'Benchmark with AI',
+      description: 'Our intelligent system evaluates your designs against industry standards for pixel-perfect results.',
+      icon: <Shield className="w-8 h-8 text-cyan-300" />,
+      span: '',
+      visual: 'Real-time Analysis Metrics',
+      gradient: 'from-cyan-900/40 to-blue-900/40'
+    },
+    {
+      id: 'aesthetic',
+      title: 'Aesthetic Excellence',
+      description: 'Craft visually stunning experiences using advanced design principles and automated refinement tools.',
+      icon: <Palette className="w-8 h-8 text-rose-300" />,
+      span: '',
+      visual: 'Visual Design Interface',
+      gradient: 'from-rose-900/40 to-orange-900/40'
+    },
+    {
+      id: 'pixel',
+      title: 'Pixels Perfected',
+      description: 'Transform concepts into production-ready designs optimized for websites, apps, and digital platforms.',
+      icon: <Code className="w-8 h-8 text-emerald-300" />,
+      span: 'md:col-span-2',
+      visual: 'Multi-platform Preview',
+      gradient: 'from-emerald-900/40 to-teal-900/40'
+    }
+  ];
+
+  return (
+    <section className="py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-gray-950 to-black text-white relative overflow-hidden">
+      {/* Background blur elements */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute -bottom-40 left-1/3 w-96 h-96 bg-rose-600/20 rounded-full blur-3xl opacity-20"></div>
+      
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMzBoMzB2MzBIMHoiIHN0cm9rZS1vcGFjaXR5PSIuMDIiIHN0cm9rZT0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDIiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMCAwaDMwdjMwSDB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTMwIDBoMzB2MzBIMzB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==')] opacity-5"></div>
+
+      <div className="container mx-auto relative z-10">
+        <div className="mb-20 text-center max-w-3xl mx-auto">
+          <div className="inline-block mb-3 px-4 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+            <div className="flex items-center gap-2">
+              <Star className="w-4 h-4 text-amber-300" />
+              <span className="text-sm font-medium text-amber-200">Premium Design Tools</span>
             </div>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">Work Showcase</h2>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Explore our revolutionary features that empower creators to design with unprecedented speed and precision.
+          </p>
         </div>
-    );
-}
+
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {cards.map((card) => (
+              <div
+                key={card.id}
+                className={`${card.span} group relative rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 ease-out 
+                ${hoveredCard === card.id ? 'scale-[1.03] z-20' : 'scale-100 z-10'}`}
+                onMouseEnter={() => setHoveredCard(card.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                {/* Card background with glass effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-80`}></div>
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                
+                {/* Animated border effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                  opacity-0 group-hover:opacity-100 animate-pulse" 
+                  style={{animationDuration: '3s'}}></div>
+                
+                {/* Card content */}
+                <div className="relative z-10 p-8 md:p-10 h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/10">
+                      {card.icon}
+                    </div>
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ExternalLink className="w-5 h-5 text-white/70 hover:text-white" />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">{card.title}</h3>
+                    <p className="text-gray-300 mb-8 leading-relaxed">{card.description}</p>
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <div className="p-5 rounded-xl bg-black/30 backdrop-blur-lg border border-white/10 
+                      group-hover:border-white/20 transition-all duration-300">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-400">{card.visual}</span>
+                        <span className="flex h-2 w-2 relative">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))} 
+          </div>
+          
+          <div className="mt-16 text-center">
+            <button className="px-8 py-4 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md 
+              border border-white/10 hover:border-white/20 transition-all duration-300 
+              text-white font-medium flex items-center gap-2 mx-auto">
+              <span>Explore All Features</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Work;
