@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 
-const HomeP: React.FC = () => {
+function HomeP() {
   const container = useRef(null);
   gsap.registerPlugin(useGSAP);
 
@@ -123,11 +123,10 @@ const HomeP: React.FC = () => {
           </p>
           <div className="hero-content mt-8">
             
-          </div>
-        </div>
+          </div>        </div>
       </div>
     </div>
   );
-};
+}
 
 export default HomeP;

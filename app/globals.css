@@ -23,3 +23,113 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Animations for pipeline component */
+@keyframes slowPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(122, 172, 242, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(122, 172, 242, 0.7));
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(122, 172, 242, 0.3));
+  }
+}
+
+@keyframes glowDelay {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(122, 172, 242, 0.3));
+    opacity: 0.4;
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(122, 172, 242, 0.9));
+    opacity: 0.8;
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(122, 172, 242, 0.3));
+    opacity: 0.4;
+  }
+}
+
+@keyframes nodePulse {
+  0% {
+    r: 15;
+    opacity: 0.7;
+  }
+  50% {
+    r: 18;
+    opacity: 1;
+  }
+  100% {
+    r: 15;
+    opacity: 0.7;
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    opacity: 0;
+    r: 2;
+  }
+  50% {
+    opacity: 1;
+    r: 4;
+  }
+  100% {
+    opacity: 0;
+    r: 2;
+  }
+}
+
+.animate-slow-pulse {
+  animation: slowPulse 4s infinite ease-in-out;
+}
+
+.animate-glow {
+  animation: glow 3s infinite ease-in-out;
+}
+
+.animate-glow-delay {
+  animation: glowDelay 4s infinite ease-in-out 1s;
+}
+
+.node-pulse {
+  animation: nodePulse 2s infinite ease-in-out;
+}
+
+.data-flow-point {
+  animation: dataFlow 2s infinite ease-in-out;
+}
+
+.flow-point-1 {
+  animation-delay: 0s;
+}
+
+.flow-point-2 {
+  animation-delay: 0.5s;
+}
+
+.flow-point-3 {
+  animation-delay: 1s;
+}
+
+.flow-point-4 {
+  animation-delay: 1.5s;
+}
+
+.pulsing-pipeline {
+  filter: drop-shadow(0 0 15px rgba(33, 53, 111, 0.3));
+}
