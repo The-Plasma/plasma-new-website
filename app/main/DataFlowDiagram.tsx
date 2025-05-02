@@ -198,7 +198,7 @@ const DataFlowDiagram = () => {
             </g>
             <g className="cursor-pointer hover:opacity-80 transition-opacity node-pulse">
               <rect x="750" y="290" width="100" height="60" rx="10" ry="10" fill={nodeFillColor} stroke={nodeStrokeColor} strokeWidth="1"/>
-              <text x="800" y="325" textAnchor="middle" fill={textColor} fontSize="14" fontFamily="system-ui">LegionDev</text>
+              <text x="800" y="325" textAnchor="middle" fill={textColor} fontSize="14" fontFamily="system-ui">Development</text>
             </g>
             <g className="cursor-pointer hover:opacity-80 transition-opacity node-pulse" transform="translate(980, 250)">
                <circle cx="0" cy="0" r="28" fill={nodeFillColor} stroke={nodeStrokeColor} strokeWidth="1"/>
@@ -219,11 +219,11 @@ const DataFlowDiagram = () => {
             <circle ref={addDotRef} data-path={path7} r="5" fill={dotColor} filter="url(#intenseBlueDot)" className="data-flow-point flow-point-3" />
           </g>
 
-          {/* Central marker */}
+          {/* Central marker
           <g className="opacity-70">
             <circle cx="530" cy="400" r="15" fill="transparent" stroke={accentColor} strokeWidth="1"/>
             <text x="530" y="405" textAnchor="middle" fill={accentColor} fontSize="14" fontWeight="bold" fontFamily="system-ui">L</text>
-          </g>
+          </g> */}
 
           {/* Title area */}
           <g className="animate-slow-pulse">
