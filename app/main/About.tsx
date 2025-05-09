@@ -1,8 +1,10 @@
 "use client"
 import Image from 'next/image';
+import { useState } from 'react';
 
 // ClientShowcase component displays a grid of client logos/rectangles
 const ClientShowcase: React.FC = () => {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const images = [
         { normal: '/about/sql.png', hover: '/about/sql.png' },
@@ -38,7 +40,11 @@ const ClientShowcase: React.FC = () => {
         return images.map((img, index) => (
             <div
                 key={index}
-                className="relative border border-gray-600 flex items-center justify-center p-6 h-32 transition-all hover:border-white group overflow-hidden"
+                className={`relative border border-gray-600 flex items-center justify-center p-6 h-32 transition-all hover:border-white group overflow-hidden ${
+                    hoveredIndex !== null && hoveredIndex !== index ? 'opacity-30' : 'opacity-100'
+                }`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
             >
                 {/* Corner accents */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gray-400 opacity-60"></div>
