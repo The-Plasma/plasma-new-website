@@ -8,74 +8,41 @@ import { useGSAP } from "@gsap/react";
 
 function HomeP() {
   const container = useRef(null);
+  const videoRef = useRef(null);
   gsap.registerPlugin(useGSAP);
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-
-      // Initial state - set elements to be invisible
-      gsap.set([".hero-text", ".hero-description", ".hero-content", ".hero-video"], {
-        opacity: 0
+      // Initial PLASMA text animation
+      gsap.set(".hero-text", { y: -200, opacity: 0 });
+      gsap.to(".hero-text", {
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "bounce.out"
       });
 
-      // Animate the main PLASMA text
-      tl.fromTo(
-        ".hero-text",
-        { 
-          scale: 0.5,
-          opacity: 0 
-        },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          duration: 1.4 
-        }
-      );
-
-      // Animate the description or secondary content
-      tl.fromTo(
-        ".hero-description",
-        { 
-          y: 20,
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 1.2 
-        },
-        "-=0.6"
-      );
-
-      // Animate any additional content
-      tl.fromTo(
-        ".hero-content",
-        { 
-          y: 100,
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 1.3 
-        },
-        "+=0.3"
-      );
-
-      // Fade in the background video
-      tl.fromTo(
-        ".hero-video",
-        {
-          opacity: 0
-        },
-        {
-          opacity: 1,
-          duration: 2,
+      // Mouse movement parallax effect
+      const handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        
+        // Calculate mouse position relative to center (values from -1 to 1)
+        const x = (clientX / innerWidth - 0.5) * 2;
+        const y = (clientY / innerHeight - 0.5) * 2;
+        
+        // Apply parallax effect to video
+        gsap.to(videoRef.current, {
+          x: x * 30, // Adjust these values to control the movement intensity
+          y: y * 30,
+          duration: 1,
           ease: "power2.out"
-        },
-        "-=0.8"  // Start slightly before the previous animation ends
-      );
+        });
+      };
+
+      // Add and remove event listener
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
     },
     { scope: container }
   );
@@ -84,6 +51,7 @@ function HomeP() {
     <div className="relative h-screen w-full overflow-hidden" ref={container}>
       {/* Background Video */}
       <video 
+        ref={videoRef}
         autoPlay
         loop
         muted
@@ -93,8 +61,7 @@ function HomeP() {
         <source src="https://the-plasma.github.io/plasma-new-website/earth.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      
-      
+
       {/* Content Container */}
       <div className="absolute inset-0 z-20">
         {/* Logo (fixed in top left) */}
@@ -112,18 +79,13 @@ function HomeP() {
         <div className="flex justify-center w-full">
           <Navbar />
         </div>
-        
-        {/* Main content */}
-        <div className="flex flex-col items-center justify-center h-full text-center">
-          <h1 className="hero-text text-white text-8xl font-bold tracking-wider mb-6">
+
+        {/* Bottom Centered PLASMA Text */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 w-full flex justify-center">
+          <h1 className="hero-text text-white text-[8vw] font-extrabold tracking-widest drop-shadow-lg select-none">
             PLASMA
           </h1>
-          <p className="hero-description text-white/70 text-xl max-w-2xl mx-auto">
-            Revolutionizing the future of technology
-          </p>
-          <div className="hero-content mt-8">
-            
-          </div>        </div>
+        </div>
       </div>
     </div>
   );
