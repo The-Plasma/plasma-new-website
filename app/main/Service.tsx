@@ -114,7 +114,7 @@ const Services = () => {
       </section>
       
       {/* Include the WorkShowcase component with the Bendo grid */}
-      <WorkShowcase />
+      {/* <WorkShowcase /> */}
     </>
   );
 }
