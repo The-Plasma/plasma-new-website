@@ -126,7 +126,7 @@ export default function BeamLightDemo() {
       
       {/* Introduction Text - centered and properly spaced */}
       <div className="mt-32 text-center text-white max-w-xl">
-        <p className="mb-8">I love both <span className="text-white font-bold">Development</span> and <span className="text-white font-bold">Design</span> so, That means I can create beautiful and functional websites. I'm always looking for new opportunities to learn and grow.</p>
+        <p className="mb-8">I love both <span className="text-white font-bold">Development</span> and <span className="text-white font-bold">Design</span> so, That means I can create beautiful and functional websites. I am always looking for new opportunities to learn and grow.</p>
         
         <div className="flex justify-center gap-4 mb-16">
           <button className="bg-transparent border border-gray-600 text-white px-6 py-2 rounded-md hover:border-blue-500 transition-colors">

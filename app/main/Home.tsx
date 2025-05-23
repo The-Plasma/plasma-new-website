@@ -1,6 +1,6 @@
 // app/main/Home.tsx
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import gsap from 'gsap';
@@ -58,7 +58,7 @@ function HomeP() {
         playsInline
         className="hero-video absolute w-full h-full object-cover z-0"
       >
-        <source src="https://the-plasma.github.io/plasma-new-website/earth.mp4" type="video/mp4" />
+        <source src="/macbook.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -67,7 +67,7 @@ function HomeP() {
         {/* Logo (fixed in top left) */}
         <div className="fixed top-4 left-4">
           <Image 
-            src="/logo.svg" 
+            src="/logo.png" 
             alt="Logo" 
             width={48} 
             height={48} 
@@ -80,12 +80,7 @@ function HomeP() {
           <Navbar />
         </div>
 
-        {/* Bottom Centered PLASMA Text */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 w-full flex justify-center">
-          <h1 className="hero-text text-white text-[8vw] font-extrabold tracking-widest drop-shadow-lg select-none">
-            PLASMA
-          </h1>
-        </div>
+        
       </div>
     </div>
   );

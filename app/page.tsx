@@ -1,10 +1,9 @@
 import HomeP from "./main/Home";
-import EmptyScreen from "./main/Empty";
 import ClientShowcase from "./main/About";
-import DataFlowDiagram from "./main/DataFlowDiagram";
-import DatabaseWithRestApi from "./components/svg-component/Database_rest_api";
 import Services from "./main/Service";
-import Work from "./main/Work";
+import Work from "./main/work";
+import HappyClients from "./main/HappyClients";
+import Footer from "./main/Footer";
 
 
 export default function Home() {
@@ -12,10 +11,11 @@ export default function Home() {
     <>
       <HomeP />
       <ClientShowcase />
-      {/* <EmptyScreen /> */}
       <Work/>
       <Services/>
-      <DataFlowDiagram />
+      {/* <DataFlowDiagram /> */}
+      <HappyClients/>
+      <Footer/>
     </>
 
   );
